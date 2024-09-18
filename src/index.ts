@@ -57,3 +57,53 @@
 
 // type themeMode = "light" | "dark"
 // const mode:themeMode = "dark"
+
+
+
+//classes in typescript
+// class Player {
+//     public readonly id: string
+//     constructor(private height:number, public weight:number,protected power?:number){
+//         this.id = String(Math.random()*100)
+//     }
+//    get getMyHeight():number {
+//     return this.height
+//    } 
+//    set changeHeight(value:number) {
+//      this.height = value
+//    } 
+// }
+// const siam = new Player(100,250, 23);
+// console.log("height", siam.getMyHeight)
+// siam.changeHeight = 500
+// console.log("height", siam.getMyHeight)
+// class player2 extends Player{
+//     special : boolean
+//     constructor(special : boolean, height: number ,power: number , weight : number ){
+//         super(height, weight , power)
+//         this.special = special
+//     }
+//     getMyPower=()=> this.power
+// }
+// const result = new player2(true, 100,250, 23);
+// console.log("result", result.weight)
+// console.log("power", result.getMyPower())
+// console.log("id", result.id)
+
+interface ProductType{
+    name : string,
+    price : number,
+    stock : number,
+    offer?: boolean,
+}
+interface GiveId{
+    getId: ()=> string;
+}
+class Product implements ProductType, GiveId{
+    private id : string = String(Math.random()*1000);
+    constructor(public name:string,public price:number,public stock:number){}
+    getId = () => this.id;
+    
+}
+const product1 = new Product("Mackbook", 2000, 20)
+console.log(product1)
