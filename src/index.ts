@@ -39,12 +39,21 @@
 
 
 //fuction with object 
-interface product { name:string, stock: number, price:number }
-type GetDataTYpe = (product:product)=> void
-const getData:GetDataTYpe = (product) => {
-console.log(product)
-}
-const productOne:product = {
-    name:"Mackbook", price:46, stock:45
-}
-getData(productOne)
+// interface product { name:string, stock: number, price:number }
+// type GetDataTYpe = (product:product)=> void
+// const getData:GetDataTYpe = (product) => {
+// console.log(product)
+// }
+// const productOne:product = {
+//     name:"Mackbook", price:46, stock:45
+// }
+// getData(productOne)
+
+
+//Never type 
+// const errorHandler = () =>{
+//     throw new Error()
+// }
+
+// type themeMode = "light" | "dark"
+// const mode:themeMode = "dark"
