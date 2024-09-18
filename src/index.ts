@@ -90,20 +90,57 @@
 // console.log("power", result.getMyPower())
 // console.log("id", result.id)
 
-interface ProductType{
-    name : string,
-    price : number,
-    stock : number,
-    offer?: boolean,
-}
-interface GiveId{
-    getId: ()=> string;
-}
-class Product implements ProductType, GiveId{
-    private id : string = String(Math.random()*1000);
-    constructor(public name:string,public price:number,public stock:number){}
-    getId = () => this.id;
+// interface ProductType{
+//     name : string,
+//     price : number,
+//     stock : number,
+//     offer?: boolean,
+// }
+// interface GiveId{
+//     getId: ()=> string;
+// }
+// class Product implements ProductType, GiveId{
+//     private id : string = String(Math.random()*1000);
+//     constructor(public name:string,public price:number,public stock:number){}
+//     getId = () => this.id;
     
+// }
+// const product1 = new Product("Mackbook", 2000, 20)
+// console.log(product1)
+
+
+//Type assertion
+// const btn = document.getElementById("#btn")! ;
+// const btn = document.getElementById("#btn") as HTMLElement ;
+// const btn = <HTMLElement>document.getElementById("#btn") ;
+// btn.onclick
+// const img = document.getElementById("#myImg") as HTMLImageElement ;
+// const img = document.querySelector("img")!;
+// img.src
+
+// const form = document.getElementById("myform") as HTMLFormElement ;
+// const myInput = document.querySelector("form > input") as HTMLInputElement ;
+// form.onsubmit = (e:SubmitEvent) =>{
+//     e.preventDefault()
+//     const value = Number(myInput.value)
+//     const h2 = document.createElement("h2");
+//     h2.textContent = String(value + 20)
+//     const body = document.querySelector('body')!;
+//     body.append(h2)
+// }
+interface person{
+    [key:string] : string,
 }
-const product1 = new Product("Mackbook", 2000, 20)
-console.log(product1)
+const myObj:person = {
+    name : "siam",
+    email : "siam@gmail.com"
+}
+const getName = ():string =>{
+    return myObj["name"]
+}
+const getEmail = ():string  =>{
+    return myObj["email"]
+}
+const getData = (key:string):string =>{
+    return myObj[key];
+}
