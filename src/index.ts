@@ -128,19 +128,149 @@
 //     const body = document.querySelector('body')!;
 //     body.append(h2)
 // }
-interface person{
-    [key:string] : string,
-}
-const myObj:person = {
-    name : "siam",
-    email : "siam@gmail.com"
-}
-const getName = ():string =>{
-    return myObj["name"]
-}
-const getEmail = ():string  =>{
-    return myObj["email"]
-}
-const getData = (key:string):string =>{
-    return myObj[key];
-}
+// interface person{
+//     [key:string] : string,
+// }
+// const myObj:person = {
+//     name : "siam",
+//     email : "siam@gmail.com"
+// }
+// const getName = ():string =>{
+//     return myObj["name"]
+// }
+// const getEmail = ():string  =>{
+//     return myObj["email"]
+// }
+// const getData = (key: keyof person):string =>{
+//     return myObj[key];
+// }
+// getData("name")
+
+
+
+//Type utility
+// -- Partial type
+// type User = {
+//     name : string,
+//     email : string
+// }
+// type User2 = Partial<User>
+
+
+//Required Type -- oposite of person
+// type User = {
+//     name?: string,
+//     email: string
+// }
+// const User : Required<User>={
+//     name : "siam",
+//     email : "siam@gmail.com"
+// }
+
+
+//Readonly<Type> -- makes every property readonly 
+// type User = {
+//     name : string,
+//     email : string
+// }
+// const user:Readonly<User>={
+//     name : "siam",
+//     email : "siam@gmail.com"
+// }
+
+
+
+//Record<keys, Type>
+// type User = {
+//     name : string;
+//     email : string;
+// }
+// type User2 = Record<"name" | "email" , string>
+
+
+//Example 
+// interface UserInfo {
+//     age : number;
+// }
+// type UserName = "john" | "andrew" | "elon";
+
+// const users:Record<UserName, UserInfo> = {
+//     john : {age : 34},
+//     andrew : {age : 34},
+//     elon : {age : 34}
+// }
+
+
+
+
+//pick<Type , keys>
+// interface OrderInfo {
+//     readonly id : string;
+//     user : string ;
+//     city : string ;
+//     state : string ;
+//     country : string ;
+//     status : string ;
+// }
+// type shippingInfo = Pick<OrderInfo , "city" | "state" | "country">
+
+
+//Omit<Type , keys>
+// interface OrderInfo {
+//     readonly id : string;
+//     user : string ;
+//     city : string ;
+//     state : string ;
+//     country : string ;
+//     status : string ;
+// }
+// type Random = Omit<OrderInfo , "city" | "state" | "country">
+
+
+
+//Exclude<Type , ExcludeUnion>
+// type union = string | number | boolean
+// type Random = Exclude<union , boolean>
+
+//Extract<Type , Union>
+// type union = string | number | boolean
+// type Random = Extract<union , boolean>
+
+//NonNullable<Type>
+// type union = string | number | boolean | null | undefined
+// type random = NonNullable<union>
+
+
+
+//parameters<Type>
+// const myfunc = (a:number , b:string) =>{
+//     console.log(a+b)
+// }
+// type Random = Parameters<typeof myfunc>
+
+
+//ConstructorParameters<Type>
+// class SampleClass{
+//     constructor(public s:string , public t:string){}
+// }
+// type random = ConstructorParameters<typeof SampleClass>
+
+
+//ReturnType<Type>
+// const myfunc = (a : number , b:string ):string =>{
+//    return a + b
+// }
+// type FuncType = ReturnType<typeof myfunc>
+
+
+
+// InstanceType<Type>
+// class SampleClass{
+//     constructor(public s:string , public t:string){}
+// }
+// type random = InstanceType<typeof SampleClass>
+
+// const user:random = {
+//     s:"44",
+//     t:"34"
+// }
