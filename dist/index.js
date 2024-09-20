@@ -8,16 +8,9 @@
 // const obj:Obj = {
 //     height : 434,
 //     weight : 345,
-const myObj = {
-    name: "siam",
-    email: "siam@gmail.com"
+const user = { name: "siam", age: 20 };
+const func = (n, o) => {
+    return { n, o };
 };
-const getName = () => {
-    return myObj["name"];
-};
-const getEmail = () => {
-    return myObj["email"];
-};
-const getData = (key) => {
-    return myObj[key];
-};
+const ans = func(user, user);
+console.log(ans);

@@ -274,3 +274,39 @@
 //     s:"44",
 //     t:"34"
 // }
+
+
+
+
+//Generic -------
+// type person = {
+//     name : string,
+//     age : number 
+// }
+// const func = <T>(n:T):T =>{
+//     return n;
+// }
+// const person1:person = {
+//     name: "siam",
+//     age: 24
+// }
+// const ans = func<person>(person1)
+
+
+
+// const arr:number[] = [] 
+// const arr2:Array<number> = [] 
+
+// const func = <T, U>(n: T, o: U):{n:T,o:U} =>{
+//     return {n,o};
+// }
+// const ans = func<number, string>(20,"lol");
+// console.log(ans)
+
+type person = {name: string,age: number }
+const user:person = {name : "siam",age : 20}
+const func = <T, U extends T>(n:T,o:U) :{n:T, o:U}=>{
+    return {n,o};
+}
+const ans = func<person , person>(user,user)
+console.log(ans)
