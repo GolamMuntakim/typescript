@@ -313,24 +313,24 @@
 // const ans = func<number, string>(20, "lol")
 // console.log(ans)
 
-type person ={
-    name : string,
-    age : number 
-}
-const users:person[]=[
-    {
-        name : "siam",
-        age : 36
-    },
-    {
-        name : "arman",
-        age : 16
-    }
-]
-const filterBypeoples = <T,K extends keyof T>(arr: T[], property:K, value:T[k]):T[] =>{
-  return  arr.filter(item=> item[property] === value)
-}
-const filteredPeopleByName = filterBypeoples(users, "name", "arman")
-console.log(filteredPeopleByName)
+// type person ={
+//     name : string,
+//     age : number 
+// }
+// const users:person[]=[
+//     {
+//         name : "siam",
+//         age : 36
+//     },
+//     {
+//         name : "arman",
+//         age : 16
+//     }
+// ]
+// const filterBypeoples = <T,K extends keyof T>(arr: T[], property:K, value:T[k]):T[] =>{
+//   return  arr.filter(item=> item[property] === value)
+// }
+// const filteredPeopleByName = filterBypeoples(users, "name", "arman")
+// console.log(filteredPeopleByName)
 
 
