@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useState } from "react";
 import Box from "./Component/Box";
+import Reduce from "./Reduce";
+
 
 type ThemeType =  "light" | "dark"
 interface ThemeContextType{
@@ -22,6 +24,7 @@ function App() {
    <ThemeProvider>
       <div>hello typescript</div> 
       <Box></Box>
+      <Reduce></Reduce>
    </ThemeProvider>
   )
 }
