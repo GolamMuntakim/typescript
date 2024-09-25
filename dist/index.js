@@ -8,9 +8,18 @@
 // const obj:Obj = {
 //     height : 434,
 //     weight : 345,
-const user = { name: "siam", age: 20 };
-const func = (n, o) => {
-    return { n, o };
+const users = [
+    {
+        name: "siam",
+        age: 36
+    },
+    {
+        name: "arman",
+        age: 16
+    }
+];
+const filterBypeoples = (arr, property, value) => {
+    return arr.filter(item => item[property] === value);
 };
-const ans = func(user, user);
-console.log(ans);
+const filteredPeopleByName = filterBypeoples(users, "name", "arman");
+console.log(filteredPeopleByName);

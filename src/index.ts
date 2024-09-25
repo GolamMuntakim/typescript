@@ -7,12 +7,12 @@
 // const obj:Obj = {
 //     height : 434,
 //     weight : 345,
-   
+
 // }
 // const obj2:Obj = {
 //     height : 434,
 //     weight : 345, 
-  
+
 // }
 
 // function in typescript
@@ -30,7 +30,7 @@
 //  func(25,23);
 
 
- // Rest operator 
+// Rest operator 
 //  type FuncType = (...m : number[]) => number[];
 //  const func:FuncType = (...m) =>{
 //     return m
@@ -103,7 +103,7 @@
 //     private id : string = String(Math.random()*1000);
 //     constructor(public name:string,public price:number,public stock:number){}
 //     getId = () => this.id;
-    
+
 // }
 // const product1 = new Product("Mackbook", 2000, 20)
 // console.log(product1)
@@ -277,36 +277,60 @@
 
 
 
-
 //Generic -------
+//generic means common
+// const func = <CustomeType>(n:CustomeType):CustomeType =>{
+//     let text:CustomeType = n
+//     return n
+// }
+// const ans = func(20)
+// const ans2 = func("siam")
+// console.log(ans)
+// console.log(ans2)
+
+
 // type person = {
-//     name : string,
-//     age : number 
+//     name: string,
+//     age: number,
+//     type : boolean
 // }
-// const func = <T>(n:T):T =>{
-//     return n;
+// const func = <T>(n: T): T => {
+//     return n
 // }
-// const person1:person = {
+// const person1: person = {
 //     name: "siam",
-//     age: 24
+//     age: 24,
+//     type:true
 // }
 // const ans = func<person>(person1)
 
-
-
-// const arr:number[] = [] 
-// const arr2:Array<number> = [] 
-
-// const func = <T, U>(n: T, o: U):{n:T,o:U} =>{
-//     return {n,o};
-// }
-// const ans = func<number, string>(20,"lol");
 // console.log(ans)
 
-type person = {name: string,age: number }
-const user:person = {name : "siam",age : 20}
-const func = <T, U extends T>(n:T,o:U) :{n:T, o:U}=>{
-    return {n,o};
+// multiple generic
+// const func = <T , U>(n:T , o:U):{n:T, o:U} =>{
+//     return {n,o}
+// }
+// const ans = func<number, string>(20, "lol")
+// console.log(ans)
+
+type person ={
+    name : string,
+    age : number 
 }
-const ans = func<person , person>(user,user)
-console.log(ans)
+const users:person[]=[
+    {
+        name : "siam",
+        age : 36
+    },
+    {
+        name : "arman",
+        age : 16
+    }
+]
+const filterBypeoples = <T,K extends keyof T>(arr: T[], property:K, value:T[k]):T[] =>{
+  return  arr.filter(item=> item[property] === value)
+}
+const filteredPeopleByName = filterBypeoples(users, "name", "arman")
+console.log(filteredPeopleByName)
+
+
