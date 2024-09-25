@@ -1,19 +1,19 @@
-// import { Dispatch, SetStateAction } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../App";
 
 
-// type propsType = string | number
+const Box = () => {
+    const {theme, toggleTheme} = useContext(ThemeContext);
+   
+    return (
+        <div className="boxConatianer" style={{
+            backgroundColor:theme === "dark" ? "black" : "white",
+            color:theme === "dark" ? "white" : "black"
+        }}>
+            <h1>Box 1</h1>
+            <button onClick={toggleTheme}>Change Theme</button>
+        </div>
+    );
+};
 
-// const Box = <T extends propsType>({label,value,setter }: {label: string,value: T,
-//     setter: Dispatch<SetStateAction<T>>}) => {
-
-//     return (
-       
-//        <form>
-//          <label>{label}</label>
-//          <input type="text" value={value} onChange={(e)=>setter(e.target.value as T)}/>
-//          <button type="submit">Submit</button>
-//        </form>
-//     );
-// };
-
-// export default Box;
+export default Box;
